@@ -23,7 +23,6 @@ namespace BankApp
                 a1.Deposit(initialDeposit);
             }
             return a1;
-        
     }
 }
 
