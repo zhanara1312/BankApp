@@ -4,6 +4,13 @@ using System.Text;
 
 namespace BankApp
 {
+    enum AccountType
+    {
+        Checking,
+        Savings,
+        CD,
+        Loan
+    }
     /// <summary>
     /// Account that represents 
     /// Bank account. Here you can withdraw or deposit your money.
@@ -28,7 +35,7 @@ namespace BankApp
 
         public Decimal Balance { get; private set; }
 
-        public String AccountType { get; set; }
+        public AccountType AccountType { get; set; }
 
         public DateTime CreatedDate { get; private set; }
         #endregion

@@ -9,7 +9,7 @@ namespace BankApp
         
   
         public static Account CreateAccount
-            (string emailAddress, string accountType,
+            (string emailAddress, AccountType accountType,
             decimal initialDeposit)
 
         {

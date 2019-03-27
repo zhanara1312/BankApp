@@ -7,13 +7,49 @@ namespace BankApp
         static void Main(string[] args)
         {
 
-            var a1 = Bank.CreateAccount("test@test.com", "Checking", 0);
+            Console.WriteLine("********************");
+            Console.WriteLine("Welcome to my Bank!");
+            Console.WriteLine("********************");
 
-            Console.WriteLine($"AN: {a1.AccountNumber}, B: {a1.Balance}, CD: {a1.CreatedDate}, EA: {a1.EmailAddress}, AT: {a1.AccountType}");
+            while (true)
+            {
+                Console.WriteLine("0. Exit");
+                Console.WriteLine("1. Create an Account");
+                Console.WriteLine("2. Deposit");
+                Console.WriteLine("3. Withdraw");
+                Console.WriteLine("4. Print my Accounts");
+                Console.Write("Select an option: ");
+                var option = Console.ReadLine();
+                switch (option)
+                {
+                    case "0":
+                        Console.WriteLine("Thank you for visiting the bank!");
+                        return;
+                    case "1":
+                        Console.Write("Email Address: ");
+                        var emailAddress = Console.ReadLine();
 
-            var a2 = Bank.CreateAccount("test1@test.com", "Savings", 100);
+                        var accountTypes = Enum.GetNames(typeof(AccountType));
+                        for (int i = 0; i < accountTypes.Length; i++)
+                        {
+                            Console.WriteLine($"{i}. {accountTypes[i]}");
+                        }
+                        Console.Write("Account Type: ");
+                        var accountType = Enum.Parse<AccountType>(Console.ReadLine());
 
-            Console.WriteLine($"AN: {a2.AccountNumber}, B: {a2.Balance}, CD: {a2.CreatedDate}, EA: {a2.EmailAddress}, AT: {a2.AccountType}");
+                        Console.Write("Amount to deposit: ");
+                        var amount = Convert.ToDecimal(Console.ReadLine());
+
+                        var a1 = Bank.CreateAccount(emailAddress, accountType, amount);
+                        Console.WriteLine($"AN: {a1.AccountNumber}, CD: {a1.CreatedDate}, Balance: {a1.Balance:C}, EA: {a1.EmailAddress}, AT: {a1.AccountType}");
+                        break;
+                    case "2":
+                    case "3":
+                    case "4":
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
