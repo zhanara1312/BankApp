@@ -7,9 +7,7 @@ namespace BankApp
 {
     static class Bank
     {
-        private static List<Account> accounts = new List<Account>();
-        private static List<Transaction> transactions = new List<Transaction>();
-
+        private static Bankcontext db = new Bankcontext();
         /// <summary>
         /// Creates an account in the bank
         /// </summary>
@@ -41,19 +39,28 @@ namespace BankApp
                 a1.Deposit(initialDeposit);
             }
 
-            accounts.Add(a1);
+            db.Accounts.Add(a1);
+            db.SaveChanges();
             return a1;
         }
 
-        public static IEnumerable<Account> GetAllAccountsForUser()
+        public static IEnumerable<Account> GetAllAccountsForUser(string emailAddress)
         {
-            return accounts;
+            return db.Accounts.Where(a => a.EmailAddress == emailAddress);
         }
 
-        private static Account GetAccountByAccountNumber
+        public static IEnumerable<Transaction>
+            GetTransactionsForAccountNumber(int accountNumber)
+        {
+            return db.Transactions
+                .Where(t => t.AccountNumber == accountNumber)
+                .OrderByDescending(t => t.TransactionDate);
+        }
+
+        private static Account GetAccountByAccountNumber 
             (int accountNumber)
         {
-            var account = accounts.SingleOrDefault(a => a.AccountNumber == accountNumber);
+            var account = db.Accounts.SingleOrDefault(a => a.AccountNumber == accountNumber);
 
             if (account == null)
             {
@@ -77,7 +84,9 @@ namespace BankApp
                 AccountNumber = accountNumber
             };
 
-            transactions.Add(transaction);
+            db.Transactions.Add(transaction);
+
+            db.SaveChanges();
         }
 
         public static void Withdraw(int accountNumber,
@@ -101,7 +110,9 @@ namespace BankApp
                 AccountNumber = accountNumber
             };
 
-            transactions.Add(transaction);
+            db.Transactions.Add(transaction);
+            db.SaveChanges();
+
 
         }
 
