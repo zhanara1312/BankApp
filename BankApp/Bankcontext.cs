@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BankApp
 {
-    class Bankcontext : DbContext
+    public class Bankcontext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
