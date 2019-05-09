@@ -18,7 +18,7 @@ namespace BankApp
         /// <exception cref="ArgumentNullException" />
         public static Account CreateAccount
             (string emailAddress, AccountType accountType,
-            decimal initialDeposit)
+            decimal initialDeposit = 0)
         {
             if (string.IsNullOrEmpty(emailAddress)
                 || string.IsNullOrWhiteSpace(emailAddress))
@@ -57,7 +57,7 @@ namespace BankApp
                 .OrderByDescending(t => t.TransactionDate);
         }
 
-        private static Account GetAccountByAccountNumber 
+        public static Account GetAccountByAccountNumber 
             (int accountNumber)
         {
             var account = db.Accounts.SingleOrDefault(a => a.AccountNumber == accountNumber);
@@ -67,6 +67,17 @@ namespace BankApp
                 throw new ArgumentNullException("account", "Account number is invalid!");
             }
             return account;
+        }
+
+        public static Account UpdateAccount(Account updatedAccount)
+        {
+            var oldAccount =
+                GetAccountByAccountNumber(updatedAccount.AccountNumber);
+            oldAccount.EmailAddress = updatedAccount.EmailAddress;
+            oldAccount.AccountType = updatedAccount.AccountType;
+            db.SaveChanges();
+
+            return oldAccount;
         }
 
         public static void Deposit(int accountNumber,

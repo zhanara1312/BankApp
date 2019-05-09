@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankApp;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BankUI.Controllers
 {
+    [Authorize]
     public class AccountsController : Controller
     {
         private readonly Bankcontext _context;
@@ -21,7 +23,7 @@ namespace BankUI.Controllers
         // GET: Accounts
         public async Task<IActionResult> Index()
         {
-            return View(Bank.GetAllAccountsForUser("test@test.com"));
+            return View(Bank.GetAllAccountsForUser(HttpContext.User.Identity.Name));
         }
 
         // GET: Accounts/Details/5
@@ -32,8 +34,7 @@ namespace BankUI.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts
-                .FirstOrDefaultAsync(m => m.AccountNumber == id);
+            var account = Bank.GetAccountByAccountNumber(id.Value);
             if (account == null)
             {
                 return NotFound();
@@ -53,12 +54,11 @@ namespace BankUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AccountNumber,EmailAddress,Balance,AccountType,CreatedDate")] Account account)
+        public async Task<IActionResult> Create ([Bind("EmailAddress,AccountType")] Account account)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(account);
-                await _context.SaveChangesAsync();
+                Bank.CreateAccount(account.EmailAddress, account.AccountType);
                 return RedirectToAction(nameof(Index));
             }
             return View(account);
@@ -72,7 +72,7 @@ namespace BankUI.Controllers
                 return NotFound();
             }
 
-            var account = await _context.Accounts.FindAsync(id);
+            var account = Bank.GetAccountByAccountNumber(id.Value);
             if (account == null)
             {
                 return NotFound();
@@ -85,7 +85,7 @@ namespace BankUI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AccountNumber,EmailAddress,Balance,AccountType,CreatedDate")] Account account)
+        public async Task<IActionResult> Edit(int id, [Bind("AccountNumber,EmailAddress,AccountType")] Account account)
         {
             if (id != account.AccountNumber)
             {
@@ -96,8 +96,7 @@ namespace BankUI.Controllers
             {
                 try
                 {
-                    _context.Update(account);
-                    await _context.SaveChangesAsync();
+                    Bank.UpdateAccount(account);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
