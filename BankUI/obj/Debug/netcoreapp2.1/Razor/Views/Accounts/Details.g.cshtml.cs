@@ -149,7 +149,7 @@ using BankApp;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(900, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5f113c16f9d4d7094c9d93bcb40e29f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f4e878012dcd447f9356cfaae82c2c17", async() => {
                 BeginContext(957, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -184,7 +184,7 @@ using BankApp;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(973, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7c7eeda2c9a45c59daf053c0e6dcf8a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "678df51c33414496bd3c84aabf0dfe9f", async() => {
                 BeginContext(995, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

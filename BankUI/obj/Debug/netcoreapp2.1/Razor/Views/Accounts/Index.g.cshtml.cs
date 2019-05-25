@@ -73,7 +73,7 @@ using BankApp;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(109, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6f481aa76044e42b9264f7d527ddc73", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82a9a2d884aa42c99376768152cfd4a0", async() => {
                 BeginContext(132, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -183,7 +183,7 @@ using BankApp;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1163, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6aa0106e3c0b4da4916fb6b841861b53", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19ce767335a942539f15b10297c35707", async() => {
                 BeginContext(1219, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -218,7 +218,7 @@ using BankApp;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1247, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce621153e22248c5b0c399e2b8b3c08e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "464b9aee2e3a40748b42f90dbeedb957", async() => {
                 BeginContext(1306, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -253,7 +253,7 @@ using BankApp;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(1337, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "36241e1cbb6743b79637d8a417ff62e9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a1d113c4b1447618a1d002b95ad941b", async() => {
                 BeginContext(1396, 7, true);
                 WriteLiteral("Deposit");
                 EndContext();
@@ -288,7 +288,7 @@ using BankApp;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(1425, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d5a847f05ac49a7a74218284a2f1dc7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef049cc3d1cd407cbebb06809fbc909e", async() => {
                 BeginContext(1485, 8, true);
                 WriteLiteral("Withdraw");
                 EndContext();
@@ -323,7 +323,7 @@ using BankApp;
             WriteLiteral("\r\n                ");
             EndContext();
             BeginContext(1515, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a10b7d934e8248c3bc94eefd390d8f68", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac6e069fb9e9483a8b3786629f6cf9a1", async() => {
                 BeginContext(1579, 12, true);
                 WriteLiteral("Transactions");
                 EndContext();

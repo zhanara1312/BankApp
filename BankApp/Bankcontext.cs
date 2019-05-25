@@ -13,7 +13,7 @@ namespace BankApp
         protected override void OnConfiguring
             (DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BankApp;Integrated Security=True;Connect Timeout=30;");
+            optionsBuilder.UseSqlServer(@"Server=tcp:bankuikalrgjdbserver.database.windows.net,1433;Initial Catalog=BankUIKalRGJ_db;Persist Security Info=False;User ID=kaladmin;Password=Password!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating
